@@ -1,0 +1,27 @@
+header {
+    background: #417690;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 17px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: .5px;
+    word-spacing: 3px;
+}
+
+header a.logo {
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+header .auth a {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+}

@@ -1,0 +1,42 @@
+.create-btn {
+  font-size: 18px;
+  margin: 20px 0;
+  display: block;
+  color: blue;
+}
+
+table {
+  min-width: 400px;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  border: 1px solid #c5c4c4;
+  padding: 8px;
+
+  &:first-child {
+    text-align: center;
+  }
+}
+
+table tr:nth-child(even) {
+  background-color: #e5e6ea;
+}
+
+table a {
+  color: blue;
+}
+
+table img {
+  width: 200px;
+  height: 8rem;
+  object-fit: cover;
+}
+
+table video {
+  width: 250px;
+  height: 10rem;
+  object-fit: contain;
+  background: #000;
+}

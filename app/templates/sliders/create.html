@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{title}}</h2>
+
+<form method="post" action="/sliders/create" class="action-form">
+    <label>Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Description:</label>
+    <input type="text" name="description" required>
+
+    <label>Image:</label>
+    <input type="text" name="image" required>
+
+    <button type="submit">Create</button>
+</form>
+{% endblock %}

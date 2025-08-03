@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="media">
+
+    <h1>Upload Image</h1>
+
+    <form action="/media/upload/" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" accept="image/*,video/*" multiple required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <hr>
+
+    <h2>Uploaded Images</h2>
+
+    <div class="media-container">
+        {% if media %}
+            {% for file in media %}
+                <div class="box">
+                    {% if file.type == "image" %}
+                        <img src="/uploads/{{ file.filename }}" alt="{{ file.filename }}">
+                        <p>{{ file.filename }}</p>
+                    {% elif file.type == "video" %}
+                        <video controls src="/uploads/{{ file.filename }}" type="video/{{ file.filename.split('.')[-1] | lower }}"></video>
+                        <p>{{ file.filename }}</p>
+                    {% else %}
+                        <p>Unsupported file type: {{ file.filename }}</p>
+                    {% endif %}
+
+                    <form action="/media/delete/" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this file?');">
+                        <input type="hidden" name="filename" value="{{ file.filename }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            No media uploaded yet.
+        {% endif %} 
+    </div>
+
+</div>
+{% endblock %}

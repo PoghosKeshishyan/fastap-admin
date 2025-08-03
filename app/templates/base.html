@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>{{title}}</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="logo">TRAVEL</a>
+
+        <div class="auth">
+            {% if user %}
+            <a href="/docs">Docs</a>
+            <a href="/users/logout">Logout</a>
+            {% else %}
+            <a href="/users/login">Login</a>
+            <a href="/users/register">Register</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+        {% if title != 'Home' %}
+        <aside>
+            <div class="sidebar">
+                <h2>Navigation</h2>
+
+                <div class="links">
+                    <a href="/" class="">Home</a>
+                    <a href="/media" class="">Meida</a>
+                    <a href="/items" class="">Items</a>
+                    <a href="/sliders" class="">Sliders</a>
+                </div>
+            </div>
+        </aside>
+        {% endif %}
+
+        <div class="block-content">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+
+</body>
+
+</html>

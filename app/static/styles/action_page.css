@@ -1,0 +1,16 @@
+.action-form {
+  margin-top: 15px;
+}
+
+.action-form input {
+  display: block;
+  margin: 4px 0 10px 0;
+  font-size: 15px;
+}
+
+.action-form button {
+  margin-top: 5px;
+  padding: 2px 10px;
+  cursor: pointer;
+  font-size: 15px;
+}

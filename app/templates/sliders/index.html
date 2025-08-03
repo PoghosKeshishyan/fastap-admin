@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{title}}</h2>
+<a href="/sliders/create" class="create-btn">Create New Slider</a>
+
+<table>
+    <tr>
+        <th>N</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for elem in data %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ elem.title }}</td>
+        <td>{{ elem.description }}</td>
+        <td>
+            <a href="/uploads/{{ elem.image }}" target="_blank">
+                <img src="/uploads/{{ elem.image }}" alt="{{ elem.title }}">
+            </a>
+        </td>
+        <td>
+            <a href="/sliders/edit/{{ elem.id }}">Edit</a>
+
+            <a 
+              href="/sliders/remove/{{ elem.id }}" 
+              onclick="return confirm('Are you sure you want to delete?')"
+            >
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

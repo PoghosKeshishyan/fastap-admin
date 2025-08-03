@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="home-page">
+    <h1 class="title">Welcome to TRAVEL Admin Panel</h1>
+
+    {% if not user %}
+    <p class="subtitle">If you want to use the admin panel, please make sure to log in first.</p>
+    {% endif %}
+
+    {% if user %}
+    <div class="links">
+        <a href="/media">Media</a>
+        <a href="/items">Items</a>
+        <a href="/sliders">Sliders</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

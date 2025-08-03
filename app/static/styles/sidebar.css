@@ -1,0 +1,46 @@
+aside {
+    min-width: 300px;
+    position: relative;
+    top: -27px;
+}
+
+aside .sidebar {
+    background: #fff;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 300px;
+    top: 64px;
+    bottom: 0;
+    padding: 10px 20px 10px 10px;
+    padding-right: 20px;
+    overflow-y: auto;
+}
+
+aside .sidebar h2 {
+    font-weight: normal;
+    margin-bottom: 2px;
+    padding: 8px 10px;
+    text-align: center;
+    -webkit-text-stroke: .5px;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+
+aside .sidebar .links {
+    display: flex;
+    flex-direction: column;
+}
+
+aside .sidebar .links a {
+    padding: 8px 10px;
+    color: #000;
+    border-bottom: 1px solid #d6d4d4;
+
+    &:hover {
+        background: #e5e6ea;
+    }
+}
+
+aside .sidebar .links a.active {
+    background: #fafaaf;
+}
