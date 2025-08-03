@@ -25,20 +25,7 @@
     </header>
 
     <div class="container">
-        {% if title != 'Home' %}
-        <aside>
-            <div class="sidebar">
-                <h2>Navigation</h2>
-
-                <div class="links">
-                    <a href="/" class="">Home</a>
-                    <a href="/media" class="">Meida</a>
-                    <a href="/items" class="">Items</a>
-                    <a href="/sliders" class="">Sliders</a>
-                </div>
-            </div>
-        </aside>
-        {% endif %}
+        {% include 'sidebar.html' %}
 
         <div class="block-content">
             {% block content %} {% endblock %}

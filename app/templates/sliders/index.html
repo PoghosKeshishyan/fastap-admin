@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>{{title}}</h2>
-<a href="/sliders/create" class="create-btn">Create New Slider</a>
+<a href="/{{CURRENT_ROUTE}}/create" class="create-btn">Create New Slider</a>
 
 <table>
     <tr>
@@ -23,10 +23,10 @@
             </a>
         </td>
         <td>
-            <a href="/sliders/edit/{{ elem.id }}">Edit</a>
+            <a href="/{{CURRENT_ROUTE}}/edit/{{ elem.id }}">Edit</a>
 
             <a 
-              href="/sliders/remove/{{ elem.id }}" 
+              href="/{{CURRENT_ROUTE}}/remove/{{ elem.id }}" 
               onclick="return confirm('Are you sure you want to delete?')"
             >
                 Delete

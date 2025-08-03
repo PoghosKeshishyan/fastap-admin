@@ -7,7 +7,7 @@ router = APIRouter()
 templates = Jinja2Templates(directory='app/templates')
 
 
-@router.get('/',  response_class=HTMLResponse)
+@router.get('/', response_class=HTMLResponse)
 def home(request: Request):
     user = request.session.get('user')
 

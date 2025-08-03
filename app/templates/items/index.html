@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>{{title}}</h2>
-<a href="/items/create" class="create-btn">Create New Item</a>
+<a href="/{{CURRENT_ROUTE}}/create" class="create-btn">Create New Item</a>
 
 <table>
     <tr>
@@ -17,10 +17,10 @@
         <td>{{ elem.title }}</td>
         <td>{{ elem.description }}</td>
         <td>
-            <a href="/items/edit/{{ elem.id }}">Edit</a>
+            <a href="/{{CURRENT_ROUTE}}/edit/{{ elem.id }}">Edit</a>
 
             <a 
-              href="/items/remove/{{ elem.id }}" 
+              href="/{{CURRENT_ROUTE}}/remove/{{ elem.id }}" 
               onclick="return confirm('Are you sure you want to delete?')"
             >
                 Delete

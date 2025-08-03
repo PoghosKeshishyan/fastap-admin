@@ -2,7 +2,7 @@
 {% block content %}
 <h2>{{title}}</h2>
 
-<form method="post" action="/items/create" class="action-form">
+<form method="post" action="/{{CURRENT_ROUTE}}/create" class="action-form">
     <label>Title:</label>
     <input type="text" name="title" required>
 

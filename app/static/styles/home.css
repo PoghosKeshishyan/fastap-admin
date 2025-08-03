@@ -16,7 +16,6 @@
 .home-page .links {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
 }
 
 .home-page .links a {

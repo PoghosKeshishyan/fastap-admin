@@ -5,7 +5,7 @@
 
     <h1>Upload Image</h1>
 
-    <form action="/media/upload/" method="post" enctype="multipart/form-data">
+    <form action="/{{CURRENT_ROUTE}}/upload/" method="post" enctype="multipart/form-data">
         <input type="file" name="files" accept="image/*,video/*" multiple required>
         <button type="submit">Upload</button>
     </form>
@@ -28,7 +28,11 @@
                         <p>Unsupported file type: {{ file.filename }}</p>
                     {% endif %}
 
-                    <form action="/media/delete/" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this file?');">
+                    <form 
+                      action="/{{CURRENT_ROUTE}}/delete/" 
+                      method="post" style="display:inline;" 
+                      onsubmit="return confirm('Are you sure you want to delete this file?');"
+                    >
                         <input type="hidden" name="filename" value="{{ file.filename }}">
                         <button type="submit">Delete</button>
                     </form>

@@ -1,0 +1,14 @@
+{% if title != 'Home' and title != 'Register' and title != 'Login' %}
+<aside>
+    <div class="sidebar">
+        <h2>Navigation</h2>
+
+        <div class="links">
+            <a href="/">Home</a>
+            <a href="/media" class="{% if CURRENT_ROUTE == 'media' %}active{% endif %}">Media</a>
+            <a href="/items" class="{% if CURRENT_ROUTE == 'items' %}active{% endif %}">Items</a>
+            <a href="/sliders" class="{% if CURRENT_ROUTE == 'sliders' %}active{% endif %}">Sliders</a>
+        </div>
+    </div>
+</aside>
+{% endif %}

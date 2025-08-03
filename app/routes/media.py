@@ -8,7 +8,7 @@ from ..dependencies import get_current_user
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
-
+CURRENT_ROUTE = 'media'
 UPLOAD_DIR = "app/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
@@ -33,11 +33,12 @@ def read_files(request: Request):
     return templates.TemplateResponse("media/index.html", {
         "request": request,
         "media": media,
-        "user": user
+        "user": user,
+        "CURRENT_ROUTE": CURRENT_ROUTE
     })
 
 
-@router.post("/upload/")
+@router.post("/upload/", response_class=RedirectResponse)
 def upload_files(request: Request, files: List[UploadFile] = File(...)):
     get_current_user(request)
 
@@ -50,7 +51,7 @@ def upload_files(request: Request, files: List[UploadFile] = File(...)):
     return RedirectResponse("/media", status_code=303)
 
 
-@router.post("/delete/")
+@router.post("/delete/", response_class=RedirectResponse)
 def delete_file(request: Request, filename: str = Form(...)):
     get_current_user(request)
     file_location = os.path.join(UPLOAD_DIR, filename)

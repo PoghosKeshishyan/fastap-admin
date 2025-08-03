@@ -1,3 +1,7 @@
+.auth-form {
+    margin: 0 2rem;
+}
+
 .auth-form form {
     margin: 15px 0;
 }

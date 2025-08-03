@@ -8,16 +8,17 @@ from ..dependencies import get_db_session
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
+CURRENT_ROUTE = 'users'
 
 
 @router.get('/register', response_class=HTMLResponse)
 def register(request: Request):
     return templates.TemplateResponse('users/register.html', {
-        'request': request, 'error': None, 'title': 'Register'
+        'request': request, 'error': None, 'title': 'Register', 'CURRENT_ROUTE': CURRENT_ROUTE
     })
 
 
-@router.post('/register', response_class=HTMLResponse)
+@router.post('/register')
 def register(
     request: Request,
     username: str = Form(...),
@@ -33,6 +34,7 @@ def register(
             'username': username,
             'password': password,
             'error': 'Username already exists.',
+            'CURRENT_ROUTE': CURRENT_ROUTE
         })
     
     hashed_password = auth.get_password_hash(password)
@@ -47,11 +49,11 @@ def register(
 @router.get('/login', response_class=HTMLResponse)
 def login(request: Request):
     return templates.TemplateResponse('users/login.html', {
-        'request': request, 'error': None, 'title': 'Login'
+        'request': request, 'error': None, 'title': 'Login', 'CURRENT_ROUTE': CURRENT_ROUTE
     })
 
 
-@router.post('/login', response_class=HTMLResponse)
+@router.post('/login')
 def login_post(
     request: Request,
     username: str = Form(...),
@@ -67,13 +69,14 @@ def login_post(
             'username': username,
             'password': password,
             'error': 'Invalid credentials.',
+            'CURRENT_ROUTE': CURRENT_ROUTE
         })
     
     request.session['user'] = user.username
     return RedirectResponse(url='/', status_code=status.HTTP_302_FOUND)
 
 
-@router.get('/logout')
+@router.get('/logout', response_class=RedirectResponse)
 def logout(request: Request):
     request.session.pop('user', None)
     return RedirectResponse(url='/', status_code=status.HTTP_302_FOUND)
